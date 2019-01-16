@@ -42,6 +42,7 @@ function runSubmit(e) {
     .then(data => {
       const { token } = data.data[0];
       localStorage.setItem('jwtToken', token);
+
       data.errors.email !== undefined
         ? (document.getElementById('email-err').innerHTML = data.errors.email)
         : (document.getElementById('email-err').innerHTML = '');
