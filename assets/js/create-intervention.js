@@ -1,9 +1,11 @@
 const form = document.getElementById('formsubmit');
 
-const url = 'http://localhost:5050/api/v1/red-flags';
+const url = 'http://localhost:5050/api/v1/interventions';
+const load = document.getElementById('load-de');
 
 function runSubmit(e) {
-  e.preventDefault();
+    e.preventDefault();
+    load.innerText = "Submitting...";
 
   const title = document.getElementById('title').value;
   const comments = document.getElementById('description').value;
@@ -32,17 +34,18 @@ function runSubmit(e) {
 
   // The parameters we are gonna pass to the fetch function
   fetch(request)
-    .then(response => {
-      //   Redirect to login
-      document.getElementById('title').value = '';
-      document.getElementById('description').value = '';
-      document.getElementById('location').value = '';
+  .then(response => {
+        //   Redirect to login
+    //   document.getElementById('title').value = '';
+    //   document.getElementById('description').value = '';
+    //   document.getElementById('location').value = '';
       if (response.status === 200) {
         window.location.href = 'view-redflag-records.html';
       }
       return response.json();
     })
     .then(data => {
+        load.innerText = "Submit";
         if (data.error) {
           window.location.assign('login.html');
         }
@@ -58,7 +61,8 @@ function runSubmit(e) {
       // clear input fields
     })
     .catch(err => {
-      console.log(err);
+    
+      console.log(err.response);
     });
 }
 
@@ -90,5 +94,6 @@ function runFindMe() {
 
   navigator.geolocation.getCurrentPosition(success, error);
 }
+
 
 form.addEventListener('submit', runSubmit);

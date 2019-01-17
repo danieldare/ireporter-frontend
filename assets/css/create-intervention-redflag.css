@@ -61,7 +61,7 @@ input[type="email"] {
   font-family: "Ubuntu", sans-serif;
   /* background: #fafafa; */
   background: #fff;
-  border-radius: 2px;
+  border-radius: 3px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
@@ -79,10 +79,10 @@ textarea {
   width: 100%;
   display: inline-block;
   font-family: "Ubuntu", sans-serif;
-  border-radius: 2px;
+  border-radius: 3px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
   height: 120px;
-  margin: 5px 0 22px 0;
+  margin: 5px 0 15px 0;
   padding: 14px;
 }
 
@@ -140,10 +140,10 @@ label {
   margin: 1px 0;
   border: none;
   cursor: pointer;
-  width: 100%;
   opacity: 0.9;
   font-size: 1.6rem;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  transition: all .4s ease;
 }
 
 .btn-dark {
@@ -155,8 +155,9 @@ label {
 }
 
 .btn-md {
-  width: 100px;
-  padding: 8px 18px;
+  display: inline-block;
+  padding: 11px 18px;
+  border-radius: 3px;
 }
 
 .mt-6 {
@@ -282,3 +283,28 @@ footer {
     margin-left: 0px;
   }
 }
+
+
+#loading{
+  position: fixed;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.4);
+  background-position: center;
+  background-size: cover;
+  height:100vh;
+  width:100%;
+  display: none;
+}
+
+#load-id{
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+}
+
+/* .load-de{
+  display: none;
+} */
