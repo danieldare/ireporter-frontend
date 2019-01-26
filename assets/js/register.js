@@ -33,6 +33,7 @@ function runSubmit(e) {
       return response.json();
     })
     .then(data => {
+      console.log(data)
       data.errors.firstname !== undefined
         ? (document.getElementById('firstname-err').innerHTML = data.errors.firstname)
         : (document.getElementById('firstname-err').innerHTML = '');

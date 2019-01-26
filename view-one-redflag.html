@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>View Red-Flag Records</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/view-redflag-records.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/header.css" />
+  </head>
+  <body id="body">
+    <header>
+      <span><a href="index.html">iReporter</a></span>
+      <span class="bar" id="tooglebar">&#9776</span>
+      <ul class="nav-items show-items " >
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+  </header>
+    <div class="loading" id="loading">
+        <img src="assets/img/spinner.gif"  alt="loading..." class="load-id"/>
+    </div>
+
+    
+   
+    <main id="bg-img">
+      <div class="container">
+        <div class="title-user">
+          <span class="user-info2">Red-Flag Records</span><br />
+          <small>Welcome, User@gmail.com</small>
+        </div>
+        <hr />
+        <div>
+          <div id="delete-msg"></div>
+        </div>
+
+        <div class="row" id="display-redflag">
+        </div>
+            <div id="display-err">
+        </div>
+
+        <!-- <div class="delete-modal" id="delete-modal">
+            <div class="delete-modal__content">
+                <p class="delete-modal__text">Do you want to delete this record?</p>
+                <small class="delete-modal__warning">warning!!! it cannot be reversed</small>
+                <div class="delete-modal__answer">
+                  <a href="#" class="delete-modal__yes">Yes</a>
+                  <a href="#" class="delete-modal__no">No</a>
+                </div>
+    </div>
+</div> -->
+      <div class="modal" style="display: none">
+  <div class="overlay"></div>
+  <div class="modal_content">
+    <!-- Dynamic Section -->
+    <p class="delete-modal__text">Do you want to delete this record?</p>
+              <small class="delete-modal__warning">warning! This cannot be reversed</small>
+              <div class="delete-modal__answer">
+                <a href="#" class="delete-modal__yes" id="delete-me">Yes</a>
+                <a href="#" class="delete-modal__no">No</a>
+              </div>
+    <button title="Close" class="close_modal" id="close_modal">
+      &times;
+    </button>
+  </div>
+</div>
+
+<div class="modal-comment" style="display: none">
+    <div class="overlay"></div>
+    <div class="modal_content">
+      <!-- Dynamic Section --> 
+      <p class="delete-modal__text">Comments</p>
+                <textarea cols="6" placeholder="Enter text" class="modal-comment__textarea" id="comments" focus></textarea>
+                <small id="comment-err" class="err"></small>
+                <small class="delete-modal__warning">&nbsp;</small>
+                <div class="delete-modal__answer">
+                  <a href="#" class="delete-modal__yes" id="update-comment">Update comments</a>
+                </div>
+      <button title="Close" class="close_modal">
+        &times;
+      </button>
+    </div>
+  </div>
+
+
+  <div class="modal-location" style="display: none">
+      <div class="overlay"></div>
+      <div class="modal_content">
+        <!-- Dynamic Section --> 
+        <p class="delete-modal__text">Location</p>
+        <textarea cols="6" placeholder="Enter text" class="modal-comment__textarea" id="location" focus></textarea>
+                  <small id="location-err" class="err"></small>
+                  <small class="delete-modal__warning">&nbsp;</small>
+                  <div class="delete-modal__answer">
+                    <a href="#" class="delete-modal__yes" id="update-location">Update location</a>
+                  </div>
+        <button title="Close" class="close_modal">
+          &times;
+        </button>
+      </div>
+    </div>
+
+    </main>
+
+    <footer>copyright &copy; 2018. All rights reserved.</footer>
+
+    
+    </div>
+    <script src="assets/js/view-one-record.js"></script>
+    <script src="assets/js/header.js"></script>
+  </body>
+</html>
