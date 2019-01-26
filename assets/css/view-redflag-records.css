@@ -16,7 +16,6 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.5;
-  /* background: rgb(255, 255, 255); */
 }
 
 .container {
@@ -25,8 +24,6 @@ body {
 }
 
 #bg-img {
-  background-image: linear-gradient(rgba(240, 240, 240, 0.966), rgba(247, 247, 247, 0.938)),
-    url('../img/mountain.jpg');
   min-height: 100vh;
   background-size: cover;
   background-attachment: fixed;
@@ -333,9 +330,40 @@ label {
   transition: all 300ms ease-in;
 }
 
+
+
 #display-redflag{
   transition: all 800ms ease-in;
   opacity: 0;
+}
+
+#display-err{
+  transition: all 800ms ease-in;
+  opacity: 0;
+  color: rgb(36, 36, 36);
+  position: fixed;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.error-exp{
+  color: #C07079;
+  font-size: 6rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: -5px;
+}
+
+.err-msg{
+  margin-bottom: -5px;
+  font-size: 1.7rem!important;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.bt-err{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.7rem!important;
 }
 
 .redflag-record:hover {
@@ -349,6 +377,13 @@ label {
   display: inline-block;
   border-radius: 3px;
   font-size: 1.3rem;
+}
+
+.bt-block{
+  display: block;
+  margin: 20px 0 5px;
+  text-align: center;
+  font-size:1.6rem;
 }
 
 .bt-blue {
@@ -391,12 +426,13 @@ label {
   padding: 5px 15px;
   /* margin: 0px 0px 10px 0px; */
   display: table-cell;
-  width:100%;
+  width:1%;
   box-sizing: border-box;
   border-radius: 3px;
-  height: 50px;
+  height: 60px;
   vertical-align: middle;
   font-weight: 600;
+  word-break: break-all;
 }
 
 #filter {
@@ -481,15 +517,15 @@ label {
   padding:  10px 20px;
 }
 
-.delete-modal:target {
+/* .delete-modal:target {
   opacity: 1;
   visibility: visible;
-}
+} */
 
-.delete-modal:target .delete-modal__content {
+/* .delete-modal:target .delete-modal__content {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
-}
+} */
 
 .delete-modal__yes, .delete-modal__no{
   display: inline-block;
@@ -497,10 +533,12 @@ label {
   border-radius: 3px;
   margin: 20px 0;
   color:rgb(250, 250, 250);
+  text-decoration: none;
 }
 
 .delete-modal__yes{
   background: #4c606e;
+  margin-top:-20px;
 }
 .delete-modal__no{
   background: #C07079;
@@ -515,4 +553,105 @@ label {
 
 .delete-modal__text{
   margin-bottom: -6px;
+  font-size: 1.75rem;
 }
+
+.large-size{
+  min-width: 600px;
+}
+
+#loading{
+  z-index: 999;
+}
+
+
+.comment-area{
+  position: relative;
+
+}
+.location-area{
+  position: relative;
+}
+
+.edit-btn{
+  font-size: 1.2rem;
+  background: #fff;
+  color: #272727;
+  padding:5px;
+  position: absolute;
+  right:0;
+  top:30px;
+  border-top-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  font-weight: 600;
+
+}
+
+
+/* textarea.modal-comment__textarea{ margin: 5px 0px} */
+
+
+/* Modal */
+.modal, .modal-comment, .modal-location {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+}
+
+.modal .overlay , .modal-comment .overlay , .modal-location .overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 995;
+  background: rgba(0,0,0,0.85);
+}
+
+.modal .modal_content , .modal-comment .modal_content, .modal-location .modal_content{
+  z-index: 999;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-height: 90%;
+  overflow: auto;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 18px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.7);
+  border-radius: 4px;
+  width: 420px;
+}
+
+.modal .modal_content > h2 .modal-comment .modal_content > h2 , .modal-location .modal_content > h2 {
+  font-size: 28px;
+  font-weight: 200;
+  margin: 20px 0 40px;
+  text-align: center;
+}
+
+.modal .modal_content .buttons_wrapper , .modal-comment .modal_content .buttons_wrapper , .modal-location .modal_content .buttons_wrapper{
+  padding: 20px;
+}
+
+.modal .close_modal , .modal-comment .close_modal  , .modal-location .close_modal{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  opacity: 0.5;
+  color: #303030;
+  border: none;
+  transition: opacity 0.2s ease;
+}
+
+.modal .close_modal:hover, .modal-comment .close_modal:hover , .modal-location .close_modal:hover {
+  opacity: 0.9;
+}
+
+

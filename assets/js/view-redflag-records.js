@@ -1,45 +1,6 @@
-const edit = document.getElementById("edit");
-const displayForm = document.querySelector(".edit-form");
-const spinner = document.querySelector(".no-spinner");
-// edit.addEventListener("click", editRecord);
-
-// let loading = true;
-// function editRecord(e) {
-//   e.preventDefault();
-//   //   scroll to the position
-//   scrollWin();
-//   // Add spinner class
-//   if (loading === true) {
-//     spinner.classList.add("show-spinner");
-//   }
-//   loading = falsessssssss;
-//   setTimeout(() => {
-//     if (loading === false) {
-//       spinner.classList.remove("show-spinner");
-//       displayForm.classList.add("edit-show-form");
-//     }
-//   }, 2000);
-// }
-
-// function scrollWin() {
-//   window.scrollTo(0, 700);
-// }
-
-
-
-
-// const body = document.getElementById('body');
-
 const url = 'http://localhost:5050/api/v1/red-flags';
 const redflagsRecord = document.getElementById('display-redflag');
-// const deleteBox = document.getElementById('delete-me'); 
-
-//     deleteBox.addEventListener('click', () => {
-//     console.log('Hello from here')
-//   })
-
-
-
+const redflagsErr = document.getElementById('display-err');
 const load = (records) => {
 
   records.forEach(record => {
@@ -56,7 +17,7 @@ const load = (records) => {
   // })
     document.getElementById("display-redflag").style.opacity = 1;
     const recordDetails = `
-    <a href="#">
+    <a href="#"> 
     <div class="redflag-record" id="redflag-record">
       <div class="status__name">${status}</div>
       <div>
@@ -72,26 +33,26 @@ const load = (records) => {
         <small>${location}</small>
       </div>
       <div>
-        <a href="edit-redflag.html" class="bt bt-blue">Edit</a>
+        <a href="view-one-redflag.html?id=${id}" class="bt bt-blue" >view Details</a>
         <a href="#delete-modal" class="bt bt-red">Delete</a>
       </div>
     </div>
     </a>
-
     <div class="delete-modal" id="delete-modal">
             <div class="delete-modal__content">
                 <p class="delete-modal__text">Do you want to delete this record?</p>
-                <small class="delete-modal__warning">warning! This cannot be reversed</small>
+                <small class="delete-modal__warning">warning!!! it cannot be reversed</small>
                 <div class="delete-modal__answer">
                   <a href="#" class="delete-modal__yes">Yes</a>
                   <a href="#" class="delete-modal__no">No</a>
                 </div>
     </div>
     `
-    
     redflagsRecord.innerHTML += recordDetails;
+    
 
   })
+
 
 }
 
@@ -109,6 +70,9 @@ function loadWindow() {
       return response.json();
     })
     .then(data => {
+      if (data.error || localStorage.jwtToken === undefined) {
+        window.location.assign('login.html');
+      }
       data.data.forEach(data => console.log(data))
       const records = data.data;
       if(records.length !== 0){
@@ -120,7 +84,13 @@ function loadWindow() {
 
     })
     .catch(err => {
-      return err;
+      console.log(err)
+      document.getElementById('loading').style.opacity = 0;
+      redflagsErr.style.opacity = 1;
+       redflagsErr.innerHTML = `
+         <h2 class="error-exp">Oops!!!</h2>
+       <p class="err-msg">Connection failed! Kindly try again</p>
+       <a href="view-redflags.html" class="bt bt-blue bt-err" >Try again</a>`
     });
 }
 
