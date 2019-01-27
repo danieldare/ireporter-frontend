@@ -1,7 +1,22 @@
+const defaultRecords = () => {
+  localStorage.setItem('red-total', 0);
+  localStorage.setItem('red-draft', 0);
+  localStorage.setItem('red-investigation', 0);
+  localStorage.setItem('red-resolved', 0);
+  localStorage.setItem('red-rejected', 0);
+}
+
+
 const url = 'http://localhost:5050/api/v1/red-flags';
 const redflagsRecord = document.getElementById('display-redflag');
 const redflagsErr = document.getElementById('display-err');
 const load = (records) => {
+
+  const total = records.length;
+  let draftCount = 0;
+  let investigationCount = 0;
+  let resolvedCount = 0;
+  let rejectedCount = 0;
 
   records.forEach(record => {
     const title = record.title;
@@ -10,42 +25,47 @@ const load = (records) => {
     const status = record.status;
     const id = record.id;
     const location = record.location;
-  //   const deleteBox = document.getElementById('delete-me'); 
+    let color = '';
 
-  //   deleteBox.addEventListener('click', () => {
-  //   console.log('Hello from here')
-  // })
+      if (status === 'resolved') {
+        resolvedCount += 1;
+        color = 'green';
+      } else if (status === 'rejected') {
+        rejectedCount += 1;
+        color = '#C07079';
+      } else if (status === 'under-investigation') {
+        investigationCount += 1;
+        color = 'yellow';
+      } else {
+        color = 'slategrey';
+        draftCount += 1;
+      }
+
+      localStorage.setItem('redflag-total', total);
+      localStorage.setItem('redflag-draft', draftCount);
+      localStorage.setItem('redflag-investigation', investigationCount);
+      localStorage.setItem('redflag-resolved', resolvedCount);
+      localStorage.setItem('redflag-rejected', rejectedCount);
+
     document.getElementById("display-redflag").style.opacity = 1;
     const recordDetails = `
-    <a href="#"> 
     <div class="redflag-record" id="redflag-record">
-      <div class="status__name">${status}</div>
+      <div class="status__name" style="background-color:${color}">${status}</div>
       <div>
         <p>Report CreatedAt</p>
         <small>${createdon}</small>
       </div>
       <div>
         <p>Issue</p>
-        <small>${title}</small>
+        <small id="title">${title}</small>
       </div>
       <div>
         <p>Location</p>
         <small>${location}</small>
       </div>
       <div>
-        <a href="view-one-redflag.html?id=${id}" class="bt bt-blue" >view Details</a>
-        <a href="#delete-modal" class="bt bt-red">Delete</a>
+        <a href="view-one-redflag.html?id=${id}" class="bt bt-red" >view Details</a>
       </div>
-    </div>
-    </a>
-    <div class="delete-modal" id="delete-modal">
-            <div class="delete-modal__content">
-                <p class="delete-modal__text">Do you want to delete this record?</p>
-                <small class="delete-modal__warning">warning!!! it cannot be reversed</small>
-                <div class="delete-modal__answer">
-                  <a href="#" class="delete-modal__yes">Yes</a>
-                  <a href="#" class="delete-modal__no">No</a>
-                </div>
     </div>
     `
     redflagsRecord.innerHTML += recordDetails;
@@ -79,7 +99,11 @@ function loadWindow() {
         document.getElementById('loading').style.opacity = 0;
         load(data.data)
       }else{
-
+          defaultRecords();
+          redflagsErr.innerHTML = `
+         <h2 class="error-exp">Oops!</h2>
+       <p class="err-msg">No redflag record!</p>
+       <a href="create-redflag.html" class="bt bt-blue bt-err" >Create redflag record</a>`
       }
 
     })
