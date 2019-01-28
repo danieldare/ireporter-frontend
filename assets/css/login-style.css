@@ -94,7 +94,7 @@ input[type="password"],
 input[type="email"] {
   width: 100%;
   padding: 20px 14px;
-  margin: 5px 0 22px 0;
+  margin: 3px 0 25px 0;
   display: inline-block;
   border: none;
   font-family: "Ubuntu", sans-serif;
@@ -157,19 +157,18 @@ label {
   margin: 0;
   padding: 0;
   color: #c07079;
-  letter-spacing: 0.4rem;
   font-weight: 600;
   font-family: "Dosis", sans-serif;
 }
 
 .left-heading-sub {
-  font-size: 1.6rem;
-  padding: 10px;
-  margin: 2px 0;
-  background: #394650;
-  color: #fff;
+  font-size: 2rem;
+  padding: 5px;
+  margin: 0;
+  font-weight: 600;
+  /* background: #394650; */
+  color: #394650;
   border-radius: 5px;
-  letter-spacing: 0.2rem;
 }
 
 footer {
@@ -248,4 +247,41 @@ footer {
   .form-container {
     width: 98%;
   }
+}
+
+#loading-container{
+  position: fixed;
+  background: #39465056;
+  top:0;
+  left:0;
+  height: 100vh;
+  width:100%;
+  z-index: 9999;
+  transition: all 300ms ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+}
+
+#loading-img{
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+}
+
+#login-container{
+  padding: 18px 23px;
+  background: limegreen;
+  color: #fff;
+  font-size: 1.6rem;
+  border-radius: 3px;
+  margin-top:10px;
+  margin-bottom: -100px;
+  float: right;
+  transition: all 300ms ease-in;
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.18)
 }
