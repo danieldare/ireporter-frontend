@@ -17,12 +17,24 @@
         <li><a href="#">Logout</a></li>
       </ul>
   </header>
-    <section class="bg-img">
-      <div class="container">
+  <section class="bg-img">
+    <div class="container">
+      <div>
+
+        <div class="record-notification"><a href="view-redflags.html">View redflag records</a></div>
+        <div id="record-notification">
+            Record created successfully
+          </div>
+
+      </div>
+
         <div class="left-head">
           Tell Us About it, <br />
           <span>We can build a better Nation</span>
         </div>
+        <div id="loading-container">
+            <img src="assets/img/spinner.gif" id="loading-img" />
+          </div>
         <div class="row">
           <div class="form-container">
             <div class="redflag-header">
@@ -54,7 +66,7 @@
               <label> Image/Video upload </label>
               <input type="file" name="img" accept="image/*, video/*" id="images" multiple >
 
-              <button class="btn btn-blue btn-md">Submit</button>
+              <button class="btn btn-blue btn-md" id="load-de">Submit</button>
             </form>
           </div>
         </div>
