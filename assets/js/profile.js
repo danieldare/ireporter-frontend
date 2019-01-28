@@ -13,6 +13,12 @@
       const status = record.type;
       const mainId = record.id;
       const id = index + 1;
+
+      if(status === 'red-flag'){
+          statusNew = 'redflag';
+        }if(status === 'intervention'){
+            statusNew = 'intervention';
+      }
   
       document.getElementById("mytable").style.opacity = 1;
       const allRecords = `
@@ -22,7 +28,7 @@
          ${status}
         </td>
         <td>
-         <a href="view-one-redflag.html?id=${mainId}" class="view-more">View Details</a>
+         <a href="view-one-${statusNew}.html?id=${mainId}" class="view-more">View Details</a>
         </td>
 
       `

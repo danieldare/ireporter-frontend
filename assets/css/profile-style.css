@@ -3,8 +3,7 @@
 
 * {
   box-sizing: border-box;
-  /* font-family: "Ubuntu", sans-serif; */
-  font-family: 'Catamaran', sans-serif;
+  font-family: "Ubuntu", sans-serif;
 
 }
 
@@ -275,7 +274,7 @@ header span {
   font-weight: 800;
   font-size: 3rem;
   display: inline-block;
-  margin: 20px 0;
+  /* margin: 20px 0; */
   padding: 5px 0px;
   text-transform: uppercase;
 }
