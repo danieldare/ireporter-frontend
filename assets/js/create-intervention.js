@@ -1,6 +1,6 @@
 const form = document.getElementById('formsubmit');
 
-const url = 'http://localhost:5050/api/v1/interventions';
+const url = 'https://ireporter-full.herokuapp.com/api/v1/interventions';
 const load = document.getElementById('load-de');
 
 function runSubmit(e) {

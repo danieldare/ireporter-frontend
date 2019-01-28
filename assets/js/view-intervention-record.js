@@ -7,7 +7,7 @@ const defaultRecords = () => {
   }
   
   
-  const url = 'http://localhost:5050/api/v1/interventions';
+  const url = 'https://ireporter-full.herokuapp.com/api/v1/interventions';
   const redflagsRecord = document.getElementById('display-redflag');
   const redflagsErr = document.getElementById('display-err');
   const load = (records) => {

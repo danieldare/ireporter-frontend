@@ -2,7 +2,7 @@ const form = document.getElementById('formsubmit');
 
 form.addEventListener('submit', runSubmit);
 
-const url = 'http://localhost:5050/api/v1/auth/signup';
+const url = 'https://ireporter-full.herokuapp.com/api/v1/auth/signup';
 function runSubmit(e) {
   e.preventDefault();
 

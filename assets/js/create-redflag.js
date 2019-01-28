@@ -1,6 +1,6 @@
 const form = document.getElementById('formsubmit');
 
-const url = 'http://localhost:5050/api/v1/red-flags';
+const url = 'https://ireporter-full.herokuapp.com/api/v1/red-flags';
 
 function runSubmit(e) {
   e.preventDefault();

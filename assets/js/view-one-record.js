@@ -6,7 +6,7 @@ let searchParams = new URLSearchParams(newUrl.search);
 const id = searchParams.get('id'); 
 
 
-const url = `http://localhost:5050/api/v1/red-flags/${id}`;
+const url = `https://ireporter-full.herokuapp.com/api/v1/red-flags/${id}`;
 const redflagsRecord = document.getElementById('display-redflag');
 const redflagsErr = document.getElementById('display-err');
 
@@ -112,7 +112,7 @@ function removeRecord(){
   let searchParams = new URLSearchParams(newUrl.search);
   const id = searchParams.get('id'); 
   
-  const url = `http://localhost:5050/api/v1/red-flags/${id}`
+  const url = `https://ireporter-full.herokuapp.com/api/v1/red-flags/${id}`
   const request = new Request(url, {
     method: 'DELETE',
     headers: new Headers({
@@ -158,7 +158,7 @@ function updateRecord(e){
   const id = searchParams.get('id'); 
   const comments = document.getElementById('comments').value;
 
-  const url = `http://localhost:5050/api/v1/red-flags/${id}/comment`
+  const url = `https://ireporter-full.herokuapp.com/api/v1/red-flags/${id}/comment`
   const request = new Request(url, {
     method: 'PATCH',
     headers: new Headers({
@@ -219,7 +219,7 @@ function updateRecordLocation(e){
   const id = searchParams.get('id'); 
   const location = document.getElementById('location').value;
 
-  const url = `http://localhost:5050/api/v1/red-flags/${id}/location`
+  const url = `https://ireporter-full.herokuapp.com/api/v1/red-flags/${id}/location`
   const request = new Request(url, {
     method: 'PATCH',
     headers: new Headers({
