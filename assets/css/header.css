@@ -1,4 +1,4 @@
-/* Font imports */
+40+-]098uy76t75r 4342e46t7p896//* Font imports */*6
 @import url('https://fonts.googleapis.com/css?family=Ubuntu');
 
 * {
@@ -19,7 +19,11 @@ body {
   /* background: rgb(252, 252, 252); */
 }
 
-.container {
+
+hr{
+  border-bottom: 1   jkdbiudsfsjbdfknpx solid steelblue;
+}
+.container {-
   max-width: 85%;
   margin: 0 auto;
 }
@@ -44,7 +48,7 @@ ul.nav-items {
 .nav-items li {
   display: inline-block;
 }
-
+-
 small.err {
   display: block;
   font-size: 1.3rem;

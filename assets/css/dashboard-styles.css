@@ -55,6 +55,7 @@ body {
     url('../img/mountain.jpg');
   min-height: 100vh;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 /* Card */
@@ -163,10 +164,17 @@ body {
 }
 
 .user-info {
-  background: rgba(214, 214, 214, 0.836);
-  padding: 8px;
-  border-radius: 5px;
-  font-size: 1.5rem;
+  padding: 12px;
+  color: steelblue;
+  border-radius: 2px;
+  font-weight: 600;
+  font-size: 3rem;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  margin-top: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.6rem;
 }
 
 .title-user {
@@ -189,6 +197,13 @@ body {
   margin: 0;
   padding: 0;
   margin-top: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.4rem;
+}
+
+#username{
+  text-transform: uppercase;
+  font-size: 1.3rem;
 }
 
 .left-head {
