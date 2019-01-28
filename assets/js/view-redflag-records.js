@@ -69,8 +69,6 @@ const load = (records) => {
     </div>
     `
     redflagsRecord.innerHTML += recordDetails;
-    
-
   })
 
 
