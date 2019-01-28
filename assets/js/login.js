@@ -13,7 +13,7 @@ if (urlMain) {
   document.getElementById('testme').style.display = 'none';
 }
 
-const url = 'http://localhost:5050/api/v1/auth/login';
+const url = 'https://ireporter-full.herokuapp.com/api/v1/auth/login';
 function runSubmit(e) {
   e.preventDefault();
 

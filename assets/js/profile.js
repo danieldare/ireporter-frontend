@@ -3,7 +3,7 @@
 
   
   
-  const url = 'http://localhost:5050/api/v1/incident';
+  const url = 'https://ireporter-full.herokuapp.com/api/v1/incident';
   const incidentRecords = document.getElementById('mytable');
   const redflagsErr = document.getElementById('display-err');
   const load = (records) => {
@@ -100,7 +100,7 @@
 
 
 function loadWindow1() {
-    const url = 'http://localhost:5050/api/v1/auth/current';
+    const url = 'https://ireporter-full.herokuapp.com/api/v1/auth/current';
 
     document.getElementById('name').innerHTML = `<small>loading...</small>`;
     document.getElementById('email').innerHTML =`<small>loading...</small>`;

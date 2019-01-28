@@ -1,6 +1,6 @@
 const username = document.getElementById('username');
 
-const url = 'http://localhost:5050/api/v1/auth/current';
+const url = 'https://ireporter-full.herokuapp.com/api/v1/auth/current';
 function showUsername() {
   const request = new Request(url, {
     headers: new Headers({
