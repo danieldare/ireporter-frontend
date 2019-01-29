@@ -4,7 +4,8 @@ const jwtt = localStorage.getItem('jwtToken');
 const loggedinLinks = document.getElementById('show-links');
 console.log(jwtt)
 if(jwtt){
-    link.innerHTML = `<a href="view-all.incident.html" class="btn-sm btn-dark btn-mr">View All Records</a><a href="dashboard.html" class="btn-sm btn-light">Dashboard</a
+    link.innerHTML = `
+    <a href="dashboard.html" class="btn-sm btn-dark btn-mr">Dashboard</a
     >`;
 
     loggedinLinks.innerHTML = `
@@ -13,3 +14,5 @@ if(jwtt){
   <li><a href="#" id="logout">Logout</a></li>`
 
 }
+
+{/* <a href="view-all.incident.html" class="btn-sm btn-dark btn-mr">View All Records</a> */}
