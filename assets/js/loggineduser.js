@@ -20,8 +20,7 @@ const token = localStorage.getItem('jwtToken');
 const jwtDecoded = parseJwt(token);
 const loggedinLinks = document.getElementById('show-links');
 if (jwtDecoded) {
-  
-    const { username, email } = jwtDecoded;
+    const { email } = jwtDecoded;
     userNameDom.innerText = `Welcome, ${email}`;
 
   loggedinLinks.innerHTML = `
@@ -32,8 +31,8 @@ if (jwtDecoded) {
 
 if (!jwtDecoded) {
 loggedinLinks.innerHTML = `
-<li><a href="dashboard.html">Login</a></li>
-<li><a href="profile.html">Register</a></li>
+<li><a href="login.html">Login</a></li>
+<li><a href="register.html">Register</a></li>
 `
 
 }
