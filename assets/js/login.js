@@ -45,7 +45,7 @@ function runSubmit(e) {
         //   Redirect to login
         setTimeout(() => {
           if (response.status === 200) {
-            window.location.href = 'Dashboard.html';
+            window.location.href = 'dashboard.html';
           }
         }, 1000);
         return response.json();

@@ -46,29 +46,37 @@ function runSubmit(e) {
   // The parameters we are gonna pass to the fetch function
   fetch(request)
     .then(response => {
-      //   Redirect to login
-      // 
-      if (response.status === 200) {
-        document.getElementById('title').value = '';
-        document.getElementById('description').value = '';
-        document.getElementById('location').value = '';
-        document.getElementById('record-notification').style.opacity = 1
-        document.getElementById('record-notification').style.visibility = 'visible';
-      setTimeout(() => {
-        document.getElementById('record-notification').style.opacity = 0
-        document.getElementById('record-notification').style.visibility = 'hidden';
-      },4000)
-
-      loadingNow(false)
-        // window.location.href = 'view-redflag-records.html';
+      if(response.status === 200){
+        document.getElementById('record-notification').scrollIntoView();
       }
       return response.json();
     })
     .then(data => {
       load.innerText = "Submit";
-        if (data.error) {
-          window.location.assign('login.html');
-        }
+      if (data.error) {
+        window.location.assign('login.html');
+      }
+
+      if(data.status === 201){
+        document.getElementById('record-notification').style.opacity = 1
+        document.getElementById('record-notification').style.visibility = 'visible';
+
+
+        document.getElementById('title').value = '';
+        document.getElementById('description').value = '';
+        document.getElementById('location').value = '';
+        document.getElementById('title-err').innerHTML = ''
+        document.getElementById('description-err').innerHTML = ''
+        document.getElementById('location-err').innerHTML = ''
+
+
+        setTimeout(() => {
+          document.getElementById('record-notification').style.opacity = 0
+          document.getElementById('record-notification').style.visibility = 'hidden';
+        },4000)
+
+        loadingNow(false)
+      }
 
         if( data.errors){
           loadingNow(false)
@@ -88,8 +96,6 @@ function runSubmit(e) {
       console.log(err);
     });
 }
-
-
 
 // Location Cordinates
 const geoFind = document.getElementById('geofind');
@@ -112,9 +118,7 @@ function runFindMe() {
   function error() {
     output.innerHTML = 'Unable to retrieve your location';
   }
-
   output.innerHTML = '<p>Locating…</p>';
-
   navigator.geolocation.getCurrentPosition(success, error);
 }
 
