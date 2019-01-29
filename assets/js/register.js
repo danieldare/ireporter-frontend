@@ -2,9 +2,18 @@ const form = document.getElementById('formsubmit');
 
 form.addEventListener('submit', runSubmit);
 
+const urlM = document.location.href.split('/');
+const urlRegister = urlM.includes('register.html')
+const jwt = localStorage.getItem('jwtToken');
+
+if(jwt && urlRegister){
+  window.location.href = 'dashboard.html';
+}
+
 const url = 'https://ireporter-full.herokuapp.com/api/v1/auth/signup';
 function runSubmit(e) {
   e.preventDefault();
+  loadingNow(true);
 
   const formData = {
     firstname: document.getElementById('firstname').value,
@@ -33,7 +42,11 @@ function runSubmit(e) {
       return response.json();
     })
     .then(data => {
-      console.log(data)
+      if(data.status === 201){
+        document.getElementById('login-container').style.opacity = 1;
+        document.getElementById('login-container').style.visibility = "visible";
+      }
+      loadingNow(false);
       data.errors.firstname !== undefined
         ? (document.getElementById('firstname-err').innerHTML = data.errors.firstname)
         : (document.getElementById('firstname-err').innerHTML = '');
@@ -62,4 +75,15 @@ function runSubmit(e) {
     .catch(err => {
       return err;
     });
+}
+
+function loadingNow(bool){
+  if(bool === true){
+    document.getElementById('loading-container').style.opacity = 1;
+    document.getElementById('loading-container').style.visibility = 'visible';
+  }
+  if(bool === false){
+    document.getElementById('loading-container').style.opacity = 0;
+    document.getElementById('loading-container').style.visibility = 'hidden';
+  }
 }

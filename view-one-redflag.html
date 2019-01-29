@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/view-redflag-records.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/header.css" />
-  </head>
+    </head>
   <body id="body">
     <header>
       <span><a href="index.html">iReporter</a></span>
       <span class="bar" id="tooglebar">&#9776</span>
-      <ul class="nav-items show-items " >
+      <ul class="nav-items show-items " id="show-links" >
         <li><a href="profile.html">Profile</a></li>
         <li><a href="#">Logout</a></li>
       </ul>
@@ -27,7 +27,7 @@
       <div class="container">
         <div class="title-user">
           <span class="user-info2">Red-Flag Records</span><br />
-          <small>Welcome, User@gmail.com</small>
+          <small id="username">Welcome, User@gmail.com</small>
         </div>
         <hr />
         <div  class="back-container">
@@ -41,17 +41,6 @@
         </div>
             <div id="display-err">
         </div>
-
-        <!-- <div class="delete-modal" id="delete-modal">
-            <div class="delete-modal__content">
-                <p class="delete-modal__text">Do you want to delete this record?</p>
-                <small class="delete-modal__warning">warning!!! it cannot be reversed</small>
-                <div class="delete-modal__answer">
-                  <a href="#" class="delete-modal__yes">Yes</a>
-                  <a href="#" class="delete-modal__no">No</a>
-                </div>
-    </div>
-</div> -->
       <div class="modal" style="display: none">
   <div class="overlay"></div>
   <div class="modal_content">
@@ -111,5 +100,7 @@
     </div>
     <script src="assets/js/view-one-record.js"></script>
     <script src="assets/js/header.js"></script>
+    <script src="assets/js/loggineduser.js"></script>
+    <script src="assets/js/logout.js"></script>
   </body>
 </html>
