@@ -55,6 +55,7 @@ body {
   background-image: linear-gradient(#ecececec, #ffffffd2),
     url("../img/mountain.jpg");
   background-repeat: repeat;
+background-attachment: fixed;
 }
 
 .container {

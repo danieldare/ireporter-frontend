@@ -3,6 +3,16 @@ const form = document.getElementById('formsubmit');
 const url = 'https://ireporter-full.herokuapp.com/api/v1/interventions';
 const load = document.getElementById('load-de');
 
+const jwt = localStorage.getItem('jwtToken');
+const loggedinLinks = document.getElementById('show-links');
+if(jwt){
+  loggedinLinks.innerHTML = `
+<li><a href="dashboard.html">Dashboard</a></li>
+<li><a href="profile.html">Profile</a></li>
+<li><a href="#">Logout</a></li>`
+
+}
+
 function runSubmit(e) {
     e.preventDefault();
     load.innerText = "Submitting...";

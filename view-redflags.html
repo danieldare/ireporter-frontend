@@ -12,9 +12,7 @@
     <header>
       <span><a href="index.html">iReporter</a></span>
       <span class="bar" id="tooglebar">&#9776</span>
-      <ul class="nav-items show-items " >
-        <li><a href="profile.html">Profile</a></li>
-        <li><a href="#">Logout</a></li>
+      <ul class="nav-items show-items" id="show-links" >
       </ul>
   </header>
     <div class="loading" id="loading">
@@ -25,7 +23,7 @@
       <div class="container">
         <div class="title-user">
           <span class="user-info2">Red-Flag Records</span><br />
-          <small>Welcome, User@gmail.com</small>
+          <small id="username">Welcome, User@gmail.com</small>
         </div>
         <hr />
         <div>
@@ -48,5 +46,7 @@
     </div>
     <script src="assets/js/view-redflag-records.js"></script>
     <script src="assets/js/header.js"></script>
+    <script src="assets/js/loggineduser.js"></script>
+    <script src="assets/js/logout.js"></script>
   </body>
 </html>

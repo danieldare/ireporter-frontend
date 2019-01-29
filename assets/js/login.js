@@ -13,6 +13,15 @@ if (urlMain) {
   document.getElementById('testme').style.display = 'none';
 }
 
+const jwt = localStorage.getItem('jwtToken');
+const urlM = document.location.href.split('/');
+const urlLogin = urlM.includes('login.html')
+
+
+if(jwt && urlLogin){
+  window.location.href = 'dashboard.html';
+}
+
 const url = 'https://ireporter-full.herokuapp.com/api/v1/auth/login';
 function runSubmit(e) {
   e.preventDefault();
@@ -73,10 +82,6 @@ function runSubmit(e) {
   
   
 }
-
-// function loading(){
-
-// }
 
 form.addEventListener('submit', runSubmit);
 
