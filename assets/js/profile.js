@@ -16,7 +16,8 @@
 
       if(status === 'red-flag'){
           statusNew = 'redflag';
-        }if(status === 'intervention'){
+        }
+      if(status === 'intervention'){
             statusNew = 'intervention';
       }
   
@@ -48,10 +49,23 @@
     const redFlagResolved = localStorage.getItem('redflag-resolved');
     const redFlagRejected = localStorage.getItem('redflag-rejected');
 
-    document.getElementById('draft').innerText = redFlagDraft;
-    document.getElementById('resolved').innerText = redFlagResolved;
-    document.getElementById('rejected').innerText = redFlagRejected;
-    document.getElementById('under-investigation').innerText = redFlagInvestigation;
+    const interventionInvestigation =  localStorage.getItem('intervention-investigation');
+    const interventionDraft =  localStorage.getItem('intervention-draft');
+    const interventionResolved = localStorage.getItem('intervention-resolved');
+    const interventionRejected = localStorage.getItem('intervention-rejected');
+
+    document.getElementById('Rdraft').innerText = redFlagDraft;
+    document.getElementById('Rresolved').innerText = redFlagResolved;
+    document.getElementById('Rrejected').innerText = redFlagRejected;
+    document.getElementById('Runder-investigation').innerText = redFlagInvestigation;
+
+    document.getElementById('Idraft').innerText = interventionDraft;
+    document.getElementById('Iresolved').innerText = interventionResolved;
+    document.getElementById('Irejected').innerText = interventionRejected;
+    document.getElementById('Iunder-investigation').innerText = interventionInvestigation;
+
+
+
 
 
 
