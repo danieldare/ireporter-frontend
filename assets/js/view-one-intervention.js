@@ -282,12 +282,13 @@ function updateRecordLocation(e){
   fetch(request)
   .then(response => {
    
-      // if(response.status === 200){
-      //   window.location.reload();
-      // }
       return response.json();
     })
     .then(data => {
+      const jwt = localStorage.jwtToken
+      if (!jwt || data.error) {
+        window.location.assign('login.html');
+      }
       if(data.errors){
         modalLocation.style.display = 'block';
         attachModalListeners(modalLocation);

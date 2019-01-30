@@ -36,7 +36,7 @@ const load = (record) => {
     document.getElementById("display-redflag").style.opacity = 1;
     const recordDetails = `
     <a href="#">
-    <div class="redflag-record large-size" id="redflag-record" >
+    <div class="redflag-record large-size" id="redflag-record">
       <div class="status__name">${status}</div>
       <div>
         <p>Report CreatedAt</p>
@@ -81,6 +81,10 @@ function loadWindow() {
       return response.json();
     })
     .then(data => {
+      const jwt = localStorage.jwtToken
+      if (!jwt || data.error) {
+        window.location.assign('login.html');
+      }
       if(data.errors){
         document.getElementById('')
       }

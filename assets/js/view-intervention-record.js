@@ -91,7 +91,7 @@ const defaultRecords = () => {
       })
       .then(data => {
         const jwt = localStorage.jwtToken
-        if (!jwt) {
+        if (!jwt || data.error) {
           window.location.assign('login.html');
         }
         const records = data.data;
