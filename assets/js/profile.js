@@ -75,7 +75,7 @@
       })
     });
     // The parameters we are gonna pass to the fetch function
-    document.getElementById('loading-v2').style.opacity = 0.6;
+    document.getElementById('loading-v2').style.opacity = 0.7;
     document.getElementById('loading-data').innerHTML = `Loading...`
 
     fetch(request)
@@ -83,17 +83,22 @@
         return response.json();
       })
       .then(data => {
-        if (data.error || localStorage.jwtToken === undefined) {
+        const jwt = localStorage.jwtToken
+        if (!jwt) {
           window.location.assign('login.html');
         }
         document.getElementById('loading-data').style.display = "none";
         const records = data.data;
-        if(records.length !== 0){
+        if(data.status === 200 && records instanceof Array ){
           document.getElementById('loading-v2').style.opacity = 0;
           load(records)
         }
-        else{
-            redflagsErr.innerHTML = `
+        
+        if(data.error === 'No record found' && data.status === 400){
+          document.getElementById('loading-v2').style.opacity = 0;
+        document.getElementById('loading-data').style.display = "block";
+
+          document.getElementById('loading-data').innerHTML = `
            <h2 class="error-exp">Oops!</h2>
          <p class="err-msg">No record found!</p>
          <a href="dashboard.html" class="bt bt-blue bt-err" > return to dashboard</a>`

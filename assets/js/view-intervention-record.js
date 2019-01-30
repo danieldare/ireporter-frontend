@@ -90,26 +90,38 @@ const defaultRecords = () => {
         return response.json();
       })
       .then(data => {
-        if (data.error || localStorage.jwtToken === undefined) {
+        const jwt = localStorage.jwtToken
+        if (!jwt) {
           window.location.assign('login.html');
         }
-        data.data.forEach(data => console.log(data))
         const records = data.data;
-        if(records.length !== 0){
+        if(data.status === 200 && records instanceof Array ){
           document.getElementById('loading').style.opacity = 0;
+          document.getElementById('loading').style.visibility = "hidden";
+          document.getElementById('load-id').style.visibility = "hidden";
+          document.getElementById('load-id').style.opacity = 0;
           load(data.data)
-        }else{
+        }
+        if(data.error === 'No Intervention Found' && data.status === 400){
+          document.getElementById('loading').style.opacity = 0;
+          document.getElementById('loading').style.visibility = "hidden";
+          document.getElementById('load-id').style.visibility = "hidden";
+          document.getElementById('load-id').style.opacity = 0;
+          redflagsErr.style.opacity = 1;
             defaultRecords();
             redflagsErr.innerHTML = `
-           <h2 class="error-exp">Oops!</h2>
-         <p class="err-msg">No redflag record!</p>
-         <a href="create-intervention.html" class="bt bt-blue bt-err" >Create an intervention record</a>`
+            <h2 class="error-exp">Oops</h2>
+         <p class="err-msg">No intervention record!</p>
+         <a href="create-intervention.html" class="bt bt-blue bt-err" >Create Intervention record</a>`
         }
   
       })
       .catch(err => {
         console.log(err)
         document.getElementById('loading').style.opacity = 0;
+        document.getElementById('loading').style.visibility = "hidden";
+        document.getElementById('load-id').style.visibility = "hidden";
+        document.getElementById('load-id').style.opacity = 0;
         redflagsErr.style.opacity = 1;
          redflagsErr.innerHTML = `
            <h2 class="error-exp">Oops!!!</h2>

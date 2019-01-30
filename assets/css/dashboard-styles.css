@@ -197,12 +197,12 @@ body {
   margin: 0;
   padding: 0;
   margin-top: 15px;
-  text-transform: uppercase;
-  letter-spacing: 0.4rem;
+  text-transform: capitalize;
+  letter-spacing: 0.1rem;
 }
 
 #username{
-  text-transform: uppercase;
+  text-transform: initial;
   font-size: 1.3rem;
 }
 

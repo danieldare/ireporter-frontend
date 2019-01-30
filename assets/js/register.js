@@ -71,6 +71,10 @@ function runSubmit(e) {
       data.errors.password2 !== undefined
         ? (document.getElementById('password2-err').innerHTML = data.errors.password2)
         : (document.getElementById('password2-err').innerHTML = '');
+        typeof data.errors == 'string'
+        ? (document.getElementById('err').innerHTML = data.errors)
+        : (document.getElementById('err').style.display = 'none');
+        document.getElementById('err').scrollIntoView();
     })
     .catch(err => {
       return err;

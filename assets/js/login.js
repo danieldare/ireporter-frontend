@@ -71,7 +71,7 @@ function runSubmit(e) {
             ? (document.getElementById('password-err').innerHTML = data.errors.password)
             : (document.getElementById('password-err').innerHTML = '');
           document.getElementById('err').style.display = 'block';
-          typeof data.errors == 'string'
+          typeof data.errors === 'string'
             ? (document.getElementById('err').innerHTML = data.errors)
             : (document.getElementById('err').style.display = 'none');
         }

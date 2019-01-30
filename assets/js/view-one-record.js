@@ -250,6 +250,7 @@ function updateRecordLocation(e){
           document.getElementById('location-err').innerHTML = data.errors.location;
       }else{
         document.getElementById('delete-msg').innerHTML = `<h4 style="text-align:center; color: green">Updated red-flag record’s location.</h4>`;
+        document.getElementById('vir-location').innerHTML = `${location}`
         setTimeout(() => {
           document.getElementById('delete-msg').innerHTML = ``;
         },3000)
