@@ -121,7 +121,7 @@ body {
 }
 
 #username{
-  text-transform: uppercase;
+  text-transform: initial;
   font-size: 1.3rem;
 }
 
@@ -135,15 +135,12 @@ body {
   margin: 0;
   padding: 0;
   margin-top: 15px;
-  text-transform: uppercase;
-  letter-spacing: 0.4rem;
+  text-transform: capitalize;
+  letter-spacing: 0.1rem;
 }
 
 
 
-.back-container{
-  
-}
 
 .back-container::after{
   content: "";
@@ -360,7 +357,7 @@ label {
   transition: all 800ms ease-in;
   opacity: 0;
   color: rgb(36, 36, 36);
-  position: fixed;
+  position: relative;
   top:50%;
   left:50%;
   transform: translate(-50%, -50%);
@@ -370,15 +367,17 @@ label {
 .error-exp{
   color: #C07079;
   font-size: 6rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin-bottom: -5px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin-bottom: -20px;
 }
 
 .err-msg{
-  margin-bottom: -5px;
-  font-size: 1.7rem!important;
+  margin-bottom: -7px;
+  font-size: 1.8rem!important;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-transform: capitalize;
+  color: steelblue;
+  font-weight: 600;
 }
 
 .go-back{
