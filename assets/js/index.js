@@ -2,7 +2,6 @@ const link = document.getElementById('links-container');
 
 const jwtt = localStorage.getItem('jwtToken');
 const loggedinLinks = document.getElementById('show-links');
-console.log(jwtt)
 if(jwtt){
     link.innerHTML = `
     <a href="dashboard.html" class="btn-sm btn-dark btn-mr">Dashboard</a

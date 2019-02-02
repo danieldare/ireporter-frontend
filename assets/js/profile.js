@@ -106,7 +106,6 @@
   
       })
       .catch(err => {
-        console.log(err)
         document.getElementById('loading').style.opacity = 0;
         redflagsErr.style.opacity = 1;
          redflagsErr.innerHTML = `
@@ -140,13 +139,11 @@ function loadWindow1() {
         return response.json();
       })
       .then(data => {
-          console.log(data)
           document.getElementById('name').innerText = data.firstname + " " + data.lastname;
           document.getElementById('email').innerText = data.email;
           document.getElementById('phonenumber').innerText = data.number;
       })
       .catch(err => {
-        console.log(err)
         document.getElementById('loading').style.opacity = 0;
         redflagsErr.style.opacity = 1;
          redflagsErr.innerHTML = `

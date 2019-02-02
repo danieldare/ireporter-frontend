@@ -262,7 +262,8 @@ function updateRecordLocation(e){
 
     })
     .catch(err => {
-      console.log(err)
+      
+      
             document.getElementById('loading').style.opacity = 0;
             redflagsErr.style.opacity = 1;
              redflagsErr.innerHTML = `

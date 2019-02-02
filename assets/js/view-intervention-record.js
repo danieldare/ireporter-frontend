@@ -91,7 +91,7 @@ const defaultRecords = () => {
       })
       .then(data => {
         const jwt = localStorage.jwtToken
-        if (!jwt || data.error) {
+        if (!jwt || data.error.includes('JWT')) {
           window.location.assign('login.html');
         }
         const records = data.data;
@@ -117,7 +117,6 @@ const defaultRecords = () => {
   
       })
       .catch(err => {
-        console.log(err)
         document.getElementById('loading').style.opacity = 0;
         document.getElementById('loading').style.visibility = "hidden";
         document.getElementById('load-id').style.visibility = "hidden";
