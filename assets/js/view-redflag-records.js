@@ -90,7 +90,7 @@ function loadWindow() {
     })
     .then(data => {
     const jwt = localStorage.jwtToken
-    if (!jwt || data.error) {
+    if (!jwt || data.error.includes('JWT')) {
       window.location.assign('login.html');
     }
       const records = data.data;

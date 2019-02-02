@@ -95,8 +95,6 @@ function runSubmit(e) {
       
     })
     .catch(err => {
-    
-      console.log(err.response);
     });
 }
 

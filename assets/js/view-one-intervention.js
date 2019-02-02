@@ -137,7 +137,6 @@ function loadWindow() {
         }
     })
     .catch(err => {
-      console.log(err)
             const currentUrl = window.location.href;
             document.getElementById('loading').style.opacity = 0;
             redflagsErr.style.opacity = 1;
@@ -181,7 +180,6 @@ function removeRecord(){
 
     })
     .catch(err => {
-      console.log(err)
             document.getElementById('loading').style.opacity = 0;
             redflagsErr.style.opacity = 1;
              redflagsErr.innerHTML = `
@@ -227,7 +225,6 @@ function updateRecord(e){
       return response.json();
     })
     .then(data => {
-      console.log(data); 
       if(data.errors){
         modalComment.style.display = 'block';
         attachModalListeners(modalComment);
@@ -243,7 +240,6 @@ function updateRecord(e){
 
     })
     .catch(err => {
-      console.log(err)
             document.getElementById('loading').style.opacity = 0;
             redflagsErr.style.opacity = 1;
              redflagsErr.innerHTML = `
@@ -303,7 +299,6 @@ function updateRecordLocation(e){
 
     })
     .catch(err => {
-      console.log(err)
             document.getElementById('loading').style.opacity = 0;
             redflagsErr.style.opacity = 1;
              redflagsErr.innerHTML = `
